@@ -11,7 +11,7 @@ source:
   sha256: 8cf86e00ad3aaa6d26aca30640e86b0e3e1f395ed99f189b06d4c9f74bc58a4e
   patches:
     # TODO: Figure out why fedora/suse/debian don't need this
-    - 0001-Relax-open-fds-count-for-deep-directories.patch  # [ppc64le]
+    - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
 
 build:
   number: 0
