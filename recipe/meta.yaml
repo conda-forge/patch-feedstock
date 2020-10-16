@@ -19,6 +19,7 @@ build:
 
 requirements:
   build:
+    - libtool  # [unix]
     - {{ compiler('c') }}
     - make
 
@@ -32,7 +33,7 @@ test:
 
 about:
   home: http://savannah.gnu.org/projects/patch/
-  license: GPL 3
+  license: GPL-3.0-or-later
   license_file: COPYING
   summary: Native Win32 versions of common unix tools
   description: |
