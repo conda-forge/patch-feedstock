@@ -3,7 +3,7 @@ About patch
 
 Home: http://savannah.gnu.org/projects/patch/
 
-Package license: GPL 3
+Package license: GPL-3.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/patch-feedstock/blob/master/LICENSE.txt)
 
