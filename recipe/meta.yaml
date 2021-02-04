@@ -15,7 +15,7 @@ source:
     - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
 
 build:
-  number: 1001
+  number: 1002
   skip: True  # [win]
 
 requirements:
