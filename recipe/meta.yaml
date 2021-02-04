@@ -1,3 +1,4 @@
+{% set bootstrapping = os.environ.get('CONDA_BUILD_BOOTSTRAPPING', '') %}
 {% set name = "patch" %}
 {% set version = "2.7.6" %}
 
@@ -26,10 +27,12 @@ requirements:
 test:
   commands:
     - patch --help
+{% if bootstrapping != 'yes' %}
   files:
     - testfile
     - testfile2
     - testfile.patch
+{% endif %}
 
 about:
   home: http://savannah.gnu.org/projects/patch/
