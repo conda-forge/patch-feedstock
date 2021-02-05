@@ -23,7 +23,7 @@ build:
   # Keep above the number of the _bootstrapping package
   number: 1002
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-{% endif %
+{% endif %}
   skip: True  # [win]
 
 requirements:
