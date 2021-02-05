@@ -15,12 +15,22 @@ source:
     - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
 
 build:
+{% if bootstrapping == 'yes' %}
+  # Please increment by two
+  number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
+  # Keep above the number of the _bootstrapping package
   number: 1002
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+{% endif %
   skip: True  # [win]
 
 requirements:
   build:
+{% if bootstrapping != 'yes' %}
     - libtool  # [unix]
+{% endif %}
     - {{ compiler('c') }}
     - make
 
