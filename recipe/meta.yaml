@@ -21,17 +21,17 @@ build:
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
 {% else %}
   # Keep above the number of the _bootstrapping package
-  number: 1002
+  number: 1003
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
 {% endif %}
-  skip: True  # [win]
 
 requirements:
   build:
 {% if bootstrapping != 'yes' %}
     - libtool  # [unix]
 {% endif %}
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}         # [unix]
+    - {{ compiler('m2w64_c') }}   # [win]
     - make
 
 test:
