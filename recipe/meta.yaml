@@ -11,17 +11,30 @@ source:
   url: https://ftp.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
   sha256: 8cf86e00ad3aaa6d26aca30640e86b0e3e1f395ed99f189b06d4c9f74bc58a4e
   patches:
-    # TODO: Figure out why fedora/suse/debian don't need this
-    - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
+    # taken from https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-devel/patch/patch-2.7.6-r6.ebuild?id=2f52e76ae543f555f598e2e786b434c0610584ca
+    # kept original filenames to ease syncing
+    - patches/patch-2.7.6-fix-test-suite.patch
+    - patches/patch-2.7.6-fix-error-handling-with-git-style-patches.patch
+    - patches/patch-2.7.6-CVE-2018-6951.patch
+    - patches/patch-2.7.6-allow-input-files-to-be-missing-for-ed-style-patches.patch
+    - patches/patch-2.7.6-CVE-2018-1000156.patch
+    - patches/patch-2.7.6-CVE-2018-6952.patch
+    - patches/patch-2.7.6-Do-not-crash-when-RLIMIT_NOFILE-is-set-to-RLIM_INFINITY.patch
+    - patches/patch-2.7.6-CVE-2018-1000156-fix1.patch
+    - patches/patch-2.7.6-CVE-2018-1000156-fix2.patch
+    - patches/patch-2.7.6-CVE-2019-13636.patch
+    - patches/patch-2.7.6-CVE-2019-13638.patch
+    - patches/patch-2.7.6-Avoid-invalid-memory-access-in-context-format-diffs.patch
+    - patches/patch-2.7.6-configure-mkdir.patch
 
 build:
 {% if bootstrapping == 'yes' %}
   # Please increment by two
-  number: 0
+  number: 2
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
 {% else %}
   # Keep above the number of the _bootstrapping package
-  number: 1002
+  number: 1004
   string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
 {% endif %}
   skip: True  # [win]
