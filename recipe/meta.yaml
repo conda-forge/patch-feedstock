@@ -13,7 +13,8 @@ source:
   patches:
     # taken from https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-devel/patch/patch-2.7.6-r6.ebuild?id=2f52e76ae543f555f598e2e786b434c0610584ca
     # kept original filenames to ease syncing
-    - patches/patch-2.7.6-fix-test-suite.patch
+    - patches/patch-2.7.6-fix-test-suite-pt1.patch
+    - patches/patch-2.7.6-fix-test-suite-pt2.patch
     - patches/patch-2.7.6-fix-error-handling-with-git-style-patches.patch
     - patches/patch-2.7.6-CVE-2018-6951.patch
     - patches/patch-2.7.6-allow-input-files-to-be-missing-for-ed-style-patches.patch

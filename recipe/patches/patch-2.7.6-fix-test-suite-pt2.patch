@@ -1,0 +1,27 @@
+https://git.savannah.gnu.org/cgit/patch.git/commit/?id=074e2395f81d0ecaa66b71a6c228c70b49db72e5
+https://git.savannah.gnu.org/cgit/patch.git/commit/?id=7623b2dc0d1837ecfd58f32efc78e35834deeb38
+
+--- a/tests/merge
++++ b/tests/merge
+@@ -32,7 +32,7 @@ x2() {
+ 	shift
+     done > b.sed
+     echo "$body" | sed -f b.sed > b
+-    shift
++    test $# -eq 0 || shift
+     while test $# -gt 0 ; do
+ 	echo "$1"
+ 	shift
+ 
+--- a/tests/test-lib.sh
++++ b/tests/test-lib.sh
+@@ -113,7 +113,7 @@ cleanup() {
+     exit $status
+ }
+ 
+-if eval 'test -n "${BASH_LINENO[0]}" 2>/dev/null'; then
++if ( eval 'test -n "${BASH_LINENO[0]}"' 2>/dev/null ); then
+     eval '
+ 	_start_test() {
+ 	    printf "[${BASH_LINENO[2]}] %s -- " "$*"
+ 
