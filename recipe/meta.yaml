@@ -27,6 +27,8 @@ source:
     - patches/patch-2.7.6-CVE-2019-13638.patch
     - patches/patch-2.7.6-Avoid-invalid-memory-access-in-context-format-diffs.patch
     - patches/patch-2.7.6-configure-mkdir.patch
+    # patch by Sam James <sam@gentoo.org>, freshly submitted to bug-patch@
+    - patches/fix-cache-in-ndebug.patch
 
 build:
 {% if bootstrapping == 'yes' %}
