@@ -48,6 +48,7 @@ requirements:
     - libtool  # [unix]
 {% endif %}
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - make
 
 test:
