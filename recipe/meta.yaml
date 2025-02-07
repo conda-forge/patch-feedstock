@@ -1,6 +1,8 @@
 {% set bootstrapping = os.environ.get('CONDA_BUILD_BOOTSTRAPPING', '') %}
 {% set name = "patch" %}
 {% set version = "2.7.6" %}
+# Please increment by two
+{% set build = 2 %}
 
 package:
   name: {{ name|lower }}
@@ -30,15 +32,8 @@ source:
     - patches/patch-2.7.6-ndebug-assert-hash-table.patch
 
 build:
-{% if bootstrapping == 'yes' %}
-  # Please increment by two
-  number: 2
-  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
-{% else %}
-  # Keep above the number of the _bootstrapping package
-  number: 1004
-  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-{% endif %}
+  number: {{ build if bootstrapping == 'yes' else build + 1002 }}
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}{{ '_bootstrapping' if bootstrapping == 'yes' }}
   skip: True  # [win]
 
 requirements:
