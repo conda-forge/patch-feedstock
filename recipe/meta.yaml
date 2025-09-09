@@ -1,16 +1,16 @@
 {% set bootstrapping = os.environ.get('CONDA_BUILD_BOOTSTRAPPING', '') %}
-{% set name = "patch" %}
 {% set version = "2.7.6" %}
 # Please increment by two
 {% set build = 2 %}
 
 package:
-  name: {{ name|lower }}
+  name: patch
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://ftp.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
+  url:
+    - https://ftpmirror.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
+    - https://ftp.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
   sha256: 8cf86e00ad3aaa6d26aca30640e86b0e3e1f395ed99f189b06d4c9f74bc58a4e
   patches:
     # taken from https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-devel/patch/patch-2.7.6-r6.ebuild?id=2f52e76ae543f555f598e2e786b434c0610584ca
