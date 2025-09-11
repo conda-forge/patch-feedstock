@@ -7,7 +7,7 @@ Home: http://savannah.gnu.org/projects/patch/
 
 Package license: GPL-3.0-or-later
 
-Summary: Native Win32 versions of common unix tools
+Summary: Utility to apply diffs to files
 
 Development: http://git.savannah.gnu.org/cgit/patch.git
 
